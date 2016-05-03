@@ -1,0 +1,36 @@
+@import "settings";
+@import "helpers";
+
+body {
+    display: flex;
+    align-items: center;
+    background: url(../img/bg.jpg) no-repeat top center;
+    background-size: cover;
+}
+
+a {
+    color: #fa0451;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+}
+
+a:hover {
+    transform: scale(1.1);
+}
+
+p {
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+    font-family: 'Pixels', sans-serif;
+    line-height: 1.6;
+}
+
+.content {
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid white;
+    color: white;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}

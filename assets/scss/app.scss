@@ -7,15 +7,16 @@ body, div, ul, input, textarea {
     box-sizing: border-box;
 }
 
-html, body {
-    width: 100%;
+html {
     height: 100%;
+    min-height: 100%;
     font-size: 62.5%;
+    background: black url(../img/bg.jpg) no-repeat center center fixed;
+    background-size: cover;
 }
 
 body {
-    background: url(../img/bg.jpg) no-repeat top center fixed;
-    background-size: cover;
+    min-height: 100%;
 }
 
 a {
@@ -105,5 +106,14 @@ input[type=submit] {
     .content {
         border: none;
         margin: 0;
+    }
+
+    form {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .hide-me-on-mobile {
+        display: none;
     }
 }

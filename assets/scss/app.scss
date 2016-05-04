@@ -1,15 +1,25 @@
 @import "settings";
 @import "helpers";
 
+body, div, ul, input, textarea {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-size: 62.5%;
+}
+
 body {
-    display: flex;
-    align-items: center;
-    background: url(../img/bg.jpg) no-repeat top center;
+    background: url(../img/bg.jpg) no-repeat top center fixed;
     background-size: cover;
 }
 
 a {
-    color: #fa0451;
+    color: $red;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
     display: inline-block;
@@ -22,15 +32,78 @@ a:hover {
 p {
     margin-bottom: 10px;
     font-size: 1.6rem;
-    font-family: 'Pixels', sans-serif;
+    font-family: 'PressStart', sans-serif;
     line-height: 1.6;
+    text-transform: uppercase;
 }
 
 .content {
     background: rgba(0, 0, 0, 0.7);
-    border: 2px solid white;
+    border: 5px solid white;
+    border-radius: 3px;
     color: white;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 100px auto;
     padding: 20px;
+}
+
+form {
+    margin-top: 100px;
+}
+
+input, textarea {
+    border: 5px solid white;
+    border-radius: 3px;
+    background: none;
+    color: white;
+    font-size: 2rem;
+    font-family: "PressStart", sans-serif;
+    width: 100%;
+    height: 50px;
+    max-width: 100%;
+    padding: 0 10px;
+    resize: none;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+textarea {
+    padding: 10px;
+    height: 200px;
+}
+
+input[type=submit] {
+    border: none;
+    background: $red;
+    padding-top: 7px;
+    width: 100%;
+    font-size: 3rem;
+    height: 50px;
+    margin-top: 25px;
+}
+
+#formMessages {
+    margin-bottom: 7px;
+    color: white;
+    font-family: "PressStart", sans-serif;
+    font-size: 2rem;
+
+    &.success {
+        color: green;
+    }
+}
+
+.error {
+    color: $red;
+}
+
+@media screen and (max-width: 1024px) {
+    p {
+        font-size: 1.4rem;
+    }
+
+    .content {
+        border: none;
+        margin: 0;
+    }
 }

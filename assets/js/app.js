@@ -17,9 +17,9 @@ $(function() {
             $(formMessages).text(response);
 
             // Clear the form.
-            $('[type=name]').val('');
-            $('[type=email]').val('');
-            $('[type=message]').val('');
+            $('[name=text]').val('');
+            $('[name=email]').val('');
+            $('[name=message]').val('');
         })
         .fail(function(data) {
             $(formMessages).removeClass('success');

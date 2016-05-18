@@ -1,0 +1,147 @@
+/* Modal View */
+.perspective {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: black;
+}
+
+.container {
+    min-height: 100%;
+    position: relative;
+    outline: 1px solid rgba(0, 0, 0, 0);
+    z-index: 10;
+    -webkit-transform: translateZ(0) translateX(0) rotateY(0deg); /* reset transforms (Chrome bug) */
+    transform: translateZ(0) translateX(0) rotateY(0deg);
+    background: black url(../img/ds-8bit.gif) no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0px;
+    opacity: 0;
+    background: rgba(0, 0, 0, 0.2);
+
+    /* the transition delay of the height needs to be synced with the container transition time */
+    -webkit-transition: opacity 0.4s, height 0s 0.4s;
+    transition: opacity 0.4s, height 0s 0.4s;
+}
+
+.wrapper {
+    position: relative;
+}
+
+.component {
+    margin: 0 auto;
+    width: 60%;
+    text-align: justify;
+    font-size: 1.5em;
+}
+
+/* Modal view */
+.perspective.modalview {
+    position: fixed;
+    -webkit-perspective: 1500px;
+    perspective: 1500px;
+}
+
+.modalview .container {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.modalview .wrapper {
+    -webkit-transform: translateZ(-1px); /* solves a rendering bug in Chrome on Windows */
+}
+
+.animate .container::after {
+    opacity: 1;
+    height: 101%;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+
+/* Outer Nav */
+.outer-content {
+    position: absolute;
+    height: auto;
+    font-size: 2em;
+}
+
+.outer-content.vertical {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.outer-content.left {
+    left: 25%;
+}
+
+.effect-airbnb .container {
+    -webkit-transition: -webkit-transform 0.4s;
+    transition: transform 0.4s;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+}
+
+.effect-airbnb.animate .container {
+    -webkit-transform: translateZ(-1500px) translateX(100%) rotateY(-45deg);
+    transform: translateZ(-1500px) translateX(100%) rotateY(-45deg);
+}
+
+.no-csstransforms3d .effect-airbnb.animate .container {
+    left: 75%;
+}
+
+.effect-airbnb .outer-content p {
+    opacity: 0;
+    -webkit-transform: translateX(-150px);
+    transform: translateX(-150px);
+    -webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
+    transition: transform 0.4s, opacity 0.4s;
+}
+
+.effect-airbnb.animate .outer-content p {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.effect-airbnb.animate .outer-content p:nth-child(2) {
+    -webkit-transition-delay: 0.04s;
+    transition-delay: 0.04s;
+}
+
+.effect-airbnb.animate .outer-content p:nth-child(3) {
+    -webkit-transition-delay: 0.08s;
+    transition-delay: 0.08s;
+}
+
+.effect-airbnb.animate .outer-content p:nth-child(4) {
+    -webkit-transition-delay: 0.12s;
+    transition-delay: 0.12s;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .outer-content.left {
+        left: 20px;
+        width: 70%;
+    }
+}

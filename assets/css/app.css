@@ -1,10 +1,56 @@
 @font-face { font-family: 'PressStart'; src: url("../fonts/pressstart2p-webfont.eot"); src: url("../fonts/pressstart2p-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/pressstart2p-webfont.woff2") format("woff2"), url("../fonts/pressstart2p-webfont.woff") format("woff"), url("../fonts/pressstart2p-webfont.ttf") format("truetype"), url("../fonts/pressstart2p-webfont.svg#press_start_2pregular") format("svg"); font-weight: normal; font-style: normal; }
 
+/* Modal View */
+.perspective { position: relative; width: 100%; height: 100%; background: black; }
+
+.container { min-height: 100%; position: relative; outline: 1px solid transparent; z-index: 10; -webkit-transform: translateZ(0) translateX(0) rotateY(0deg); /* reset transforms (Chrome bug) */ transform: translateZ(0) translateX(0) rotateY(0deg); background: black url(../img/ds-8bit.gif) no-repeat center center fixed; background-size: cover; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; }
+
+.container::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 0px; opacity: 0; background: rgba(0, 0, 0, 0.2); /* the transition delay of the height needs to be synced with the container transition time */ transition: opacity 0.4s, height 0s 0.4s; }
+
+.wrapper { position: relative; }
+
+.component { margin: 0 auto; width: 60%; text-align: justify; font-size: 1.5em; }
+
+/* Modal view */
+.perspective.modalview { position: fixed; -webkit-perspective: 1500px; perspective: 1500px; }
+
+.modalview .container { position: absolute; overflow: hidden; width: 100%; height: 100%; cursor: pointer; -webkit-backface-visibility: hidden; backface-visibility: hidden; }
+
+.modalview .wrapper { -webkit-transform: translateZ(-1px); /* solves a rendering bug in Chrome on Windows */ }
+
+.animate .container::after { opacity: 1; height: 101%; transition: opacity 0.3s; }
+
+/* Outer Nav */
+.outer-content { position: absolute; height: auto; font-size: 2em; }
+
+.outer-content.vertical { top: 50%; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); -webkit-transform-style: preserve-3d; transform-style: preserve-3d; }
+
+.outer-content.left { left: 25%; }
+
+.effect-airbnb .container { transition: -webkit-transform 0.4s; transition: transform 0.4s; transition: transform 0.4s, -webkit-transform 0.4s; -webkit-transform-origin: 50% 50%; -ms-transform-origin: 50% 50%; transform-origin: 50% 50%; }
+
+.effect-airbnb.animate .container { -webkit-transform: translateZ(-1500px) translateX(100%) rotateY(-45deg); transform: translateZ(-1500px) translateX(100%) rotateY(-45deg); }
+
+.no-csstransforms3d .effect-airbnb.animate .container { left: 75%; }
+
+.effect-airbnb .outer-content p { opacity: 0; -webkit-transform: translateX(-150px); -ms-transform: translateX(-150px); transform: translateX(-150px); transition: opacity 0.4s, -webkit-transform 0.4s; transition: transform 0.4s, opacity 0.4s; transition: transform 0.4s, opacity 0.4s, -webkit-transform 0.4s; }
+
+.effect-airbnb.animate .outer-content p { opacity: 1; -webkit-transform: translateX(0); -ms-transform: translateX(0); transform: translateX(0); }
+
+.effect-airbnb.animate .outer-content p:nth-child(2) { transition-delay: 0.04s; }
+
+.effect-airbnb.animate .outer-content p:nth-child(3) { transition-delay: 0.08s; }
+
+.effect-airbnb.animate .outer-content p:nth-child(4) { transition-delay: 0.12s; }
+
+/* Media Queries */
+@media screen and (max-width: 768px) { .outer-content.left { left: 20px; width: 70%; } }
+
 body, div, ul, input, textarea { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { height: 100%; min-height: 100%; font-size: 62.5%; background: black url(../img/bg.jpg) no-repeat center center fixed; background-size: cover; }
+html { height: 100%; width: 100%; min-height: 100%; font-size: 62.5%; }
 
-body { min-height: 100%; }
+body { height: 100%; width: 100%; min-height: 100%; }
 
 a { color: #fa0451; text-decoration: none; transition: all 0.2s ease-in-out; display: inline-block; }
 
@@ -12,9 +58,11 @@ a:hover { -webkit-transform: scale(1.1); -ms-transform: scale(1.1); transform: s
 
 p { margin-bottom: 10px; font-size: 1.6rem; font-family: 'PressStart', sans-serif; line-height: 1.6; text-transform: uppercase; }
 
-.content { background: rgba(0, 0, 0, 0.7); border: 5px solid white; border-radius: 3px; color: white; max-width: 1000px; margin: 100px auto; padding: 20px; }
+.content { background: rgba(0, 0, 0, 0.7); border: 5px solid white; border-radius: 3px; color: white; max-width: 1000px; padding: 20px; }
 
-form { margin-top: 100px; }
+form { margin-top: 40px; }
+
+label { color: white; }
 
 input, textarea { border: 5px solid white; border-radius: 3px; background: none; color: white; font-size: 2rem; font-family: "PressStart", sans-serif; width: 100%; height: 50px; max-width: 100%; padding: 0 10px; resize: none; overflow: hidden; vertical-align: middle; }
 
@@ -29,8 +77,9 @@ input[type=submit] { border: none; background: #fa0451; padding-top: 7px; width:
 .error { color: #fa0451; }
 
 @media screen and (max-width: 1024px) { p { font-size: 1.4rem; }
-  .content { border: none; margin: 0; }
-  form { margin-top: 50px; margin-bottom: 50px; }
-  .hide-me-on-mobile { display: none; } }
+  .content { margin: 0; }
+  form { margin-top: 50px; margin-bottom: 50px; } }
+
+@media screen and (max-width: 768px) { .hide-me-on-mobile { display: none; } }
 
 /*# sourceMappingURL=app.css.map */

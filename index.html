@@ -8,45 +8,56 @@
         <title>Matthew Restorff | Web Developer</title>
 
         <link rel="stylesheet" type="text/css" href="assets/css/app.css">
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     </head>
     <body>
 
-        <div class="content">
-            <div class="intro-text">
-                <p>Greetings! My name's Matthew, but you probably knew that. I'm guessing you also know that I'm a web developer.</p>
+        <div id="perspective" class="perspective effect-airbnb">
+            <div class="container">
+                <div class="wrapper">
 
-                <p>Check our a few neat things I made on <a href="http://codepen.io/paper_matthew/pens/public/" target="_blank">Codepen</a> or my <a href="https://github.com/paperrobots" target="_blank">Github</a>. There's also my <a href="https://www.linkedin.com/in/mrestorff" target="_blankn">LinkedIn</a> if you're curious about my work history. *spoiler alert* I've been doing this for a long time!</p>
+                    <div class="content">
+                        <div class="intro-text">
+                            <p>Greetings! My name's Matthew, but you probably knew that. I'm guessing you also know that I'm a web developer.</p>
 
-                <p class="hide-me-on-mobile">My strengths are in Front End, PHP and Wordpress development. I also enjoy dabbling with Meteor, Angular, Python and Ruby.</p>
+                            <p>Check out a few neat things I made on <a href="http://codepen.io/paper_matthew/pens/public/" target="_blank">Codepen</a> or my <a href="https://github.com/paperrobots" target="_blank">Github</a>. There's also my <a href="https://www.linkedin.com/in/mrestorff" target="_blankn">LinkedIn</a> if you're curious about my work history. *spoiler alert* I've been doing this for a long time!</p>
 
-                <p class="hide-me-on-mobile">If you'd like to see some of my live projects feel free to <a href="#" class="cf-activate">send me a message</a>. I'd be happy to send you a few of my more recent projects!</p>
+                            <p class="hide-me-on-mobile">My strengths are in Front End, PHP and Wordpress development. I also enjoy dabbling with Meteor, Angular, Python and Ruby.</p>
 
-                <p>If you're here looking for information on my <a href="https://wordpress.org/plugins/buckets/" target="_blank">Buckets</a> plugin take a look at the <a href="https://docs.google.com/document/d/1fDhqmtKWTy-0oxTP8GUg7wdhv-VULNoBFkJbLvKNdzo/edit?usp=sharing" target="_blank">documentation</a>. If you're still stuck <a href="#" class="cf-activate">send me a message</a> and I'll see what I can do to help!</p>
+                            <p class="hide-me-on-mobile">If you'd like to see some of my live projects feel free to <a href="#" class="showMenu">send me a message</a>. I'd be happy to send you a few of my more recent projects!</p>
+
+                            <p>If you're here looking for information on my <a href="https://wordpress.org/plugins/buckets/" target="_blank">Buckets</a> plugin take a look at the <a href="https://docs.google.com/document/d/1fDhqmtKWTy-0oxTP8GUg7wdhv-VULNoBFkJbLvKNdzo/edit?usp=sharing" target="_blank">documentation</a>. If you're still stuck <a href="#" class="showMenu">send me a message</a> and I'll see what I can do to help!</p>
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
-
-            <div class="contact-form">
-                <div id="formMessages"></div>
-                <form id="contact-form" method="post" action="/inc/contact_form.php">
-                    <p>
-                        <label for="name">Name</label><br />
-                        <input type="text" required name="name" />
-                    </p>
-                    <p>
-                        <label for="email">Email</label><br />
-                        <input type="email" required name="email" />
-                    </p>
-                    <p>
-                        <label for="message">Message</label><br />
-                        <textarea required name="message"></textarea>
-                    </p>
-                    <input type="submit" value="SUBMIT" />
-                </form>
+            <div class="outer-content left vertical">
+                <div class="contact-form">
+                    <div id="formMessages"><p>CONTACT FORM</p></div>
+                    <form id="contact-form" method="post" action="/inc/contact_form.php">
+                        <p>
+                            <label for="name">Name</label><br />
+                            <input type="text" required name="name" />
+                        </p>
+                        <p>
+                            <label for="email">Email</label><br />
+                            <input type="email" required name="email" />
+                        </p>
+                        <p>
+                            <label for="message">Message</label><br />
+                            <textarea required name="message"></textarea>
+                        </p>
+                        <p><input type="submit" value="SUBMIT" /></p>
+                    </form>
+                </div>
             </div>
-
         </div>
 
         <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+        <script src="assets/js/classie.js"></script>
+        <script src="assets/js/perspective-view.js"></script>
         <script src="assets/js/app.js"></script>
         <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

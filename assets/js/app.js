@@ -1,9 +1,4 @@
 $(function() {
-    $('.cf-activate').click(function(){
-        console.log('activate contact form');
-        return false;
-    });
-
     $('form').submit(function(e){
         e.preventDefault();
         var formData = $(this).serialize();
@@ -38,3 +33,6 @@ $(function() {
         });
     });
 });
+
+
+
